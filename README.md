@@ -5,6 +5,7 @@ ALUNOS:
   * Joao Pedro Coutinho Nobrega - RGM/33482799
   * David Ramalho Teixeira de Carvalho - RGM/34262407
   * Adijair Pinto Viana Gonçalves de Araujo - RGM/33296162
+  * Ramon Sávio Fontes Rocha - RGM/33676402
 
 Professor responsavel:
   * Walace Sartori Bonfim
