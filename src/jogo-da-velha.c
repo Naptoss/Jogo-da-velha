@@ -46,12 +46,60 @@ void menu() {
             ajuda();
         else if (entradaMenu == '4')
             creditos();
-        else if (entradaMenu == '5' || entradaMenu == 's')  // Se a entrada for 4 ou s, o programa é encerrado.
+        else if (entradaMenu == '5' || entradaMenu == 's')  
             return;
         else {
             limparConsole();
-            printf("\nEntrada Inválida!");   // Se a entrada for inválida, o usuário é informado e o menu é impresso novamente.
+            printf("\nEntrada Inválida!");   
         }
     }
 }
 
+void desenharCampo() {   
+    limparConsole();
+    printf("\n\n\n"
+           "     %c | %c | %c\n"
+           "    ---|---|---\n"
+           "     %c | %c | %c\n"
+           "    ---|---|---\n"  
+           "     %c | %c | %c\n",
+           campo[1], campo[2], campo[3], campo[4], campo[5], campo[6], campo[7], campo[8], campo[9]);   // O campo é impresso na tela.
+}
+
+void umJogador() {    // Esta função é o modo umJogador. Ela é chamada quando o usuário escolhe o modo umJogador no menu.
+    limparConsole();
+    char entrada = ' ';
+    int dificuldade = 0;    // A variável dificuldade é declarada para armazenar a dificuldade escolhida pelo usuário.
+    printf("\n\n\nDIFICULDADE\n\n\nF: Fácil\n\nM: Médio\n\nD: Difícil\n\n");    // O menu de dificuldade é impresso na tela.
+    printf("\n\n\nEntrada: ");
+    scanf(" %c", &entrada);    // A entrada do usuário é lida e armazenada na variável entrada.
+    switch (entrada) {
+        case 'F':
+            dificuldade = 1;
+            break;
+        case 'f':
+            dificuldade = 1;
+            break;
+        case 'M':
+            dificuldade = 2;
+            break;
+        case 'm':
+            dificuldade = 2;
+            break;
+        case 'D':
+            dificuldade = 3;    // A dificuldade é definida de acordo com a entrada do usuário.
+            break;
+        case 'd':
+            dificuldade = 3;
+            break;
+        case 'S':
+            return;
+            break;
+        case 's':
+            return;
+            break;
+        default:
+            printf("\nEntrada Inválida!");  
+            umJogador();
+            break;
+    }
