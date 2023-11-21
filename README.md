@@ -20,7 +20,8 @@ Exemplificação de Código Fonte:
 
     A função umJogador() permite que o jogador jogue contra a inteligência artificial. A dificuldade do oponente pode ser escolhida no início do jogo.
 
-   ![printjogador()](https://github.com/Naptoss/Jogo-da-velha/assets/59514617/a47a72ca-9bfa-48f6-bb56-61299c816e17)
+   ![printjogador()](https://github.com/Naptoss/Jogo-da-velha/assets/59514617/955cf61c-5a8d-4d1f-a192-8e824bf1c99c)
+
 
 
 Dificuldades Encontradas e Soluções Implementadas:
