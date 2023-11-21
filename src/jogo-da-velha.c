@@ -102,4 +102,29 @@ void umJogador() {    // Esta função é o modo umJogador. Ela é chamada quand
             printf("\nEntrada Inválida!");  
             umJogador();
             break;
+    };
+
+}
+
+void doisJogadores() {  // Esta função é o modo doisJogadores. Ela é chamada quando o usuário escolhe o modo doisJogadores no menu.
+    char entrada = ' '; 
+    int vezJogador1 = 1;    // A variável vezJogador1 é declarada para armazenar a vez do jogador 1.
+    while (1) {            // O loop while(1) é usado para manter o jogo ativo até que o usuário escolha sair.
+        desenharCampo();
+        if (checarVitoria('X')) {
+            printf("\nJogador 1 venceu\n\n");   
+            return;
+        } else if (checarVitoria('O')) {
+            printf("\n Jogador 2 venceu\n\n");
+            return;
+        }
+        if (checarCompleto()) {
+            printf("Empate\n\n");
+        }
+        entrada = entradaUsuario(vezJogador1);  // A entrada do usuário é lida e armazenada na variável entrada.
+        if (entrada == 's') {   // Se a entrada for s, o jogo é encerrado.
+            return;
+        }
+        vezJogador1 = !vezJogador1;  // A vez do jogador é alternada.
     }
+}
