@@ -128,3 +128,53 @@ void doisJogadores() {
         vezJogador1 = !vezJogador1;  
     }
 }
+
+void ajuda() {  // Esta função imprime o menu de ajuda na tela.
+    limparConsole();
+    printf("\n\n\nAJUDA\n\nUm Jogador:\nNo modo Um Jogador, você joga contra o Computador\n\n"
+           "Dois Jogadores:\nNo modo Dois Jogadores, você joga contra um segundo jogador. A entrada alterna entre X e O. "
+           "Você também pode jogar neste modo para testar novas táticas ou apenas jogar contra si mesmo.\n\n"
+           "Controles:\nPara escolher um campo, você deve digitar um número entre 1 e 9. O primeiro campo está no canto superior esquerdo, "
+           "o segundo ao lado dele, etc.\n\n");
+    return;
+}
+
+void creditos() { // esta função chama os créditos
+    limparConsole();
+    printf("Este programa foi feito por:\n\n");
+    printf("Ramon Sávio Fonts Rocha\nDavid Ramalho Teixeira de Carvalho\nJoão Pedro Coutinho Nôbrega\nAdijair Pinto Viana Gonçalves de Araujo\n");
+    return;
+}
+
+char entradaUsuario(int x) {    // Esta função lê a entrada do usuário e verifica se ela é válida.
+    while (1) {
+        printf("\n\nEntrada: ");
+        char entrada = ' '; 
+        scanf(" %c", &entrada);
+        int numeroEntrada = entrada - '0';
+        if (numeroEntrada > 9 || numeroEntrada < 1) {   // Se a entrada não for um número entre 1 e 9, o usuário é informado e o menu é impresso novamente.
+            if (entrada == 's')
+                return entrada;
+            else
+                printf("\nEntrada Inválida!");
+        } else if (campo[numeroEntrada] != ' ') {
+            printf("\nEste campo já está em uso");
+        } else {
+            if (x)
+                campo[numeroEntrada] = 'X';  // Se a entrada for válida, o campo é definido para X ou O, dependendo do valor de x.
+            else
+                campo[numeroEntrada] = 'O'; // Se x for 1, o campo é definido para X, se não, o campo é definido para O.
+            return entrada;
+        }
+    }
+}
+
+int checarVitoria(char sinal) {  // Esta função verifica se o jogador com o sinal especificado venceu.
+    if ((campo[1] == sinal && campo[2] == sinal && campo[3] == sinal) || (campo[1] == sinal && campo[4] == sinal && campo[7] == sinal) ||
+        (campo[1] == sinal && campo[5] == sinal && campo[9] == sinal) || (campo[2] == sinal && campo[5] == sinal && campo[8] == sinal) ||
+        (campo[3] == sinal && campo[6] == sinal && campo[9] == sinal) || (campo[3] == sinal && campo[5] == sinal && campo[7] == sinal) ||
+        (campo[4] == sinal && campo[5] == sinal && campo[6] == sinal) || (campo[7] == sinal && campo[8] == sinal && campo[9] == sinal)) {
+        return 1;
+    }
+    return 0;
+}
