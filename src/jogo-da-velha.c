@@ -226,3 +226,44 @@ void IA(int dificuldade) {
                 return;
             }
         }
+         } else if (dificuldade == 3) {
+        for (int i = 1; i < 10; i++) {
+            if (campo[i] == ' ') {
+                campo[i] = 'O';
+                if (checarVitoria('O')) {
+                    return;
+                } else {
+                    campo[i] = ' ';
+                }
+            }
+        }
+
+        for (int i = 1; i < 10; i++) {
+            if (campo[i] == ' ') {
+                campo[i] = 'X';
+                if (checarVitoria('X')) {
+                    campo[i] = 'O';
+                    return;
+                } else {
+                    campo[i] = ' ';
+                }
+            }
+        }
+
+        int meio = rand() % 4;
+        if (campo[5] == ' ' && meio != 1) {
+            campo[5] = 'O';
+            return;
+        }
+
+        while (1) { 
+            int i = rand() % 9 + 1;
+            if (campo[i] == ' ') {
+                campo[i] = 'O';
+                return;
+            }
+        }
+    } else {
+        return;
+    }
+}
