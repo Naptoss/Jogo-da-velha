@@ -226,7 +226,8 @@ void IA(int dificuldade) {
                 return;
             }
         }
-         } else if (dificuldade == 3) {
+    } else if (dificuldade == 3) {
+        
         for (int i = 1; i < 10; i++) {
             if (campo[i] == ' ') {
                 campo[i] = 'O';
