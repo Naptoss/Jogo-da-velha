@@ -13,3 +13,8 @@ int checarVitoria(char);
 char entradaUsuario(int);
 void IA(int);
 
+void resetarCampo() {
+    for (int i = 0; i < 10; i++) {
+        campo[i] = ' ';
+    };
+}
