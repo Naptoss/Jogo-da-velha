@@ -192,38 +192,37 @@ void IA(int dificuldade) {
         return;
     }
 
-    srand(time(NULL)); // Esta função é usada para gerar números aleatórios.
+    srand(time(NULL)); 
 
-    if (dificuldade == 1) { // Fácil
-        int check = rand() % 3; // A variável check é declarada para armazenar um número aleatório entre 0 e 2.
-        if (check != 1) { // Se o número aleatório for 1, a IA tentará vencer.
-            for (int i = 1; i < 10; i++) { // A IA tentará vencer verificando se ela pode vencer em cada campo.
-                if (campo[i] == ' ') { // Se o campo estiver livre, a IA tentará vencer.
-                    campo[i] = 'O'; // O campo é definido para O.
-                    if (checarVitoria('O')) { // Se a IA vencer, a função é encerrada.
+    if (dificuldade == 1) { 
+        int check = rand() % 3; 
+        if (check != 1) { 
+            for (int i = 1; i < 10; i++) { 
+                if (campo[i] == ' ') { 
+                    campo[i] = 'O'; 
+                    if (checarVitoria('O')) { 
                         return;
-                    } else { // Se a IA não vencer, o campo é definido para um espaço em branco novamente.
+                    } else { 
                         campo[i] = ' ';
                     }
                 }
             }
-        } else if (check != 2) { // Se o número aleatório for 2, a IA tentará impedir o jogador de vencer.
-            for (int i = 1; i < 10; i++) { // A IA tentará impedir o jogador de vencer verificando se o jogador pode vencer em cada campo.
-                if (campo[i] == ' ') { // Se o campo estiver livre, a IA tentará impedir o jogador de vencer.
-                    campo[i] = 'X'; // O campo é definido para X.
-                    if (checarVitoria('X')) { // Se o jogador vencer, a IA definirá o campo para O e a função é encerrada.
-                        campo[i] = 'O'; // O campo é definido para O.
+        } else if (check != 2) { 
+            for (int i = 1; i < 10; i++) { 
+                if (campo[i] == ' ') { 
+                    campo[i] = 'X'; 
+                    if (checarVitoria('X')) { 
+                        campo[i] = 'O'; 
                         return;
                     } else {
-                        campo[i] = ' '; // Se o jogador não vencer, o campo é definido para um espaço em branco novamente.
+                        campo[i] = ' '; 
                     }
                 }
             }
         }
         while (1) {
-            int i = rand() % 9 + 1; // Se a IA não puder vencer e não puder impedir o jogador de vencer, ela selecionará um campo aleatório.
-            if (campo[i] == ' ') { // Se o campo estiver livre, a IA definirá o campo para O e a função é encerrada.
-                campo[i] = 'O'; // O campo é definido para O.
+            int i = rand() % 9 + 1; 
+            if (campo[i] == ' ') { 
                 return;
             }
         }
