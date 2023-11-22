@@ -72,45 +72,65 @@ void desenharCampo()
            campo[1], campo[2], campo[3], campo[4], campo[5], campo[6], campo[7], campo[8], campo[9]);
 }
 
-void umJogador()
-{
+void umJogador() {    
     limparConsole();
     char entrada = ' ';
-    int dificuldade = 0;
-    printf("\n\n\nDIFICULDADE\n\n\nF: Fácil\n\nM: Médio\n\nD: Difícil\n\n");
+    int dificuldade = 0;    
+    printf("\n\n\nDIFICULDADE\n\n\nF: Fácil\n\nM: Médio\n\nD: Difícil\n\n");   
     printf("\n\n\nEntrada: ");
-    scanf(" %c", &entrada);
-    switch (entrada)
-    {
-    case 'F':
-        dificuldade = 1;
-        break;
-    case 'f':
-        dificuldade = 1;
-        break;
-    case 'M':
-        dificuldade = 2;
-        break;
-    case 'm':
-        dificuldade = 2;
-        break;
-    case 'D':
-        dificuldade = 3;
-        break;
-    case 'd':
-        dificuldade = 3;
-        break;
-    case 'S':
-        return;
-        break;
-    case 's':
-        return;
-        break;
-    default:
-        printf("\nEntrada Inválida!");
-        umJogador();
-        break;
-    };
+    scanf(" %c", &entrada);    
+    switch (entrada) {
+        case 'F':
+            dificuldade = 1;
+            break;
+        case 'f':
+            dificuldade = 1;
+            break;
+        case 'M':
+            dificuldade = 2;
+            break;
+        case 'm':
+            dificuldade = 2;
+            break;
+        case 'D':
+            dificuldade = 3;   
+            break;
+        case 'd':
+            dificuldade = 3;
+            break;
+        case 'S':
+            return;
+            break;
+        case 's':
+            return;
+            break;
+        default:
+            printf("\nEntrada Inválida!");  
+            umJogador();
+            break;
+    }
+
+    while (1) {
+        desenharCampo();    
+        if (checarVitoria('O')) {   
+            printf("\nComputador venceu\n\n");  
+            return;
+        }
+        if (checarCompleto()) {    
+            printf("\nEmpate\n\n"); 
+            return;
+        }
+        entrada = entradaUsuario(1);    
+        desenharCampo();
+        if (entrada == 's') {
+            return;
+        }
+        if (checarVitoria('X')) {   
+            printf("\nJogador venceu\n\n");
+            return;
+        }
+        IA(dificuldade);
+    }
 }
 
 void doisJogadores()
